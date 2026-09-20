@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سجل الغياب — تسجيل الحضور</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div>
+      <div class="display" id="schoolName">سجل الحضور والغياب</div>
+      <div class="subtitle">تسجيل غياب الطلاب حسب الصف والحصة</div>
+    </div>
+    <div class="cover-meta">
+      <div id="teacherLabel">لم يتم تحديد المعلم</div>
+      <button class="link-plain" id="changeTeacherBtn">تغيير المعلم</button>
+      <div style="margin-top:8px;"><a class="link-plain" href="admin.html">لوحة الإدارة ←</a></div>
+    </div>
+  </div>
+
+  <div class="card" id="setupCard">
+    <h2>بيانات الحصة</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="teacherSelect">اسم المعلم</label>
+        <select id="teacherSelect"></select>
+      </div>
+      <div class="field">
+        <label for="classSelect">الصف</label>
+        <select id="classSelect"></select>
+      </div>
+      <div class="field">
+        <label for="dateInput">التاريخ</label>
+        <input type="date" id="dateInput">
+      </div>
+    </div>
+    <p class="hint" id="configWarning" style="display:none; color:var(--clay);">
+      لم يتم ربط الموقع بجدول جوجل بعد. عدّل ملف js/config.js وضع فيه رابط تطبيق Apps Script.
+    </p>
+  </div>
+
+  <div class="card" id="rosterCard" style="display:none;">
+    <h2 id="rosterTitle">قائمة الطلاب</h2>
+    <div class="roster" id="rosterList"></div>
+    <div class="summary-strip" id="summaryStrip"></div>
+    <div style="margin-top:18px; display:flex; gap:10px;">
+      <button class="btn-primary" id="saveBtn">حفظ الغياب</button>
+      <button class="btn-secondary" id="markAllPresentBtn">تحديد الكل حاضر</button>
+    </div>
+  </div>
+
+  <div class="empty-state" id="emptyState">اختر المعلم والصف والتاريخ لعرض قائمة الطلاب.</div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/teacher.js"></script>
+</body>
+</html>
